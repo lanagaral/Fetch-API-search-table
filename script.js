@@ -1,35 +1,34 @@
-async function loadTable(url,table){
-const tblHead = table.querySelector("thead");
-const tblBody = table.querySelector('tbody');
-const response = await fetch(url);
 
-const { headers, rows} = await response.json();
-
-tblHead.innerHTML = "<tr></tr>";
-tblBody.innerHTML = "";
-
-for(const headtxt of headers){
-const headEle = document.createElement("th");
-headEle.textContent = headtxt;
-tblHead.querySelector("tr").appendChild(headEle);
+function loadTable(url) {
+    fetch(url)
+        .then(res => res.json())
+        .then(json => printTable(json["products"]));
+}
+function printTable(data) {
+    const table = document.querySelector("table");
+    const tblHead = table.querySelector("thead");
+    const tblBody = table.querySelector('tbody');
+    tblHead.innerHTML = "<tr></tr>";
+    tblBody.innerHTML = "";
+    const headers = ["ID", "TITLE", "DESCRIPTION"]
+    for (const headtxt of headers) {
+        const headEle = document.createElement("th");
+        headEle.textContent = headtxt;
+        tblHead.querySelector("tr").appendChild(headEle);
+    }
+    for (const row of data) {
+        const rowEle = document.createElement("tr");
+        const rows = ["id", "title", "description"]
+        for (const celltxt of rows) {
+            const cellEle = document.createElement("td");
+            cellEle.textContent = row[celltxt];
+            rowEle.appendChild(cellEle);
+        }
+        tblBody.appendChild(rowEle);
+    }
 }
 
-for(const row of rows){
-const rowEle = document.createElement("tr");
-
-for (const celltxt of row){
-const cellEle = document.createElement("td");
-cellEle.textContent = celltxt;
-rowEle.appendChild(cellEle);
-}
-
-tblBody.appendChild(rowEle);
-}
-
-}
-
-loadTable("./data.json", document.querySelector("table"));
-
+loadTable("https://dummyjson.com/products");
 function search() {
 var input, filter, table, tr, td, i, txtValue;
 input = document.getElementById("nameInput");
