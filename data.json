@@ -1,0 +1,30 @@
+{
+"headers": [
+"Name",
+"USN",
+"Branch",
+"DOB"
+],
+"rows": [
+[
+"Amit",
+"1CR20MC001",
+"MCA",
+"07/07/99"
+],
+[
+"Arun",
+"1CR20MC002",
+"MCA",
+"06/08/98"
+],
+[
+"Basavaraj",
+"1CR19MC002",
+"MCA",
+"06/08/98"
+]
+
+
+]
+}
