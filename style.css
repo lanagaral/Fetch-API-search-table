@@ -1,0 +1,34 @@
+.table{
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+border-collapse: collapse;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+overflow: hidden;
+font-weight: bold;
+}
+
+.table thead th{
+background: #0096d1;
+color: #ffff;
+}
+
+.table td,
+.table th{
+padding: 10px 20px;
+}
+
+.table tbody tr:nth-of-type(even){
+background: #eeee;
+}
+
+.table tbody tr:last-of-type{
+border-bottom: 2px solid #0096d1;
+}
+
+#nameInput {
+background-position: 10px 10px;
+background-repeat: no-repeat;
+font-size: 16px;
+padding: 12px 20px 12px 40px;
+border: 1px solid #ddd;
+margin-bottom: 12px;
+}
